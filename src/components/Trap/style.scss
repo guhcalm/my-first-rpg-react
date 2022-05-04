@@ -1,0 +1,16 @@
+.Trap {
+    position: absolute;
+    height: 100px;
+    background-repeat: no-repeat;
+    animation: trap-animation 1.6s steps(8) infinite;
+    background-position-y: 0;
+}
+@keyframes trap-animation {
+    from {
+        background-position-x: 0;
+    }
+
+    to {
+        background-position-x: -384px;
+    }
+}

@@ -1,0 +1,16 @@
+.Mini-demon {
+    position: absolute;
+    height: 100px;
+    background-repeat: no-repeat;
+    animation: mini-demon-animation .8s steps(4) infinite;
+    background-position-y: 0;
+}
+@keyframes mini-demon-animation {
+    from {
+        background-position-x: 0;
+    }
+
+    to {
+        background-position-x: -192px;
+    }
+}

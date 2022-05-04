@@ -1,0 +1,16 @@
+.Chest {
+    position: absolute;
+    height: 100px;
+    background-repeat: no-repeat;
+    animation: chest-animation 1.2s steps(3) infinite;
+    background-position-y: 0;
+}
+@keyframes chest-animation {
+    from {
+        background-position-x: 0;
+    }
+
+    to {
+        background-position-x: -144px;
+    }
+}

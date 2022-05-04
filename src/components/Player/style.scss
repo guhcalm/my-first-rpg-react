@@ -1,0 +1,17 @@
+.Player {
+    position: absolute;
+    height: 100px;
+    background-repeat: no-repeat;
+    animation: player-animation .8s steps(4) infinite;
+    background-position-y: 0;
+    z-index: 3;
+}
+@keyframes player-animation {
+    from {
+        background-position-x: 0;
+    }
+
+    to {
+        background-position-x: -192px;
+    }
+}
