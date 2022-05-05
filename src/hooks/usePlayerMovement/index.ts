@@ -13,9 +13,9 @@ const usePlayerMovement = ( initial: PositionInterface ) => {
         if ( movimentState.valid ) {
             setPosition( nextMoviment.position );
             setDirection( nextMoviment.direction );
-            if ( movimentState.dead ) {alert("VOCÊ MORREU, REINICIE O JOGO"), location.reload();};
-            if ( movimentState.chest ) alert("VOCÊ ENCONTROU O TESOURO");
-            if ( movimentState.door ) alert("VOCÊ VENCEU, CONGRATS!!");
+            if ( movimentState.dead ) {alert("VOCÊ MORREU, REINICIE O JOGO"); location.reload();};
+            if ( movimentState.chest ) alert("VOCÊ ENCONTROU O TESOURO, PROCURE A SAÍDA!!");
+            if ( movimentState.door ) {alert("VOCÊ VENCEU, CONGRATS!!"); location.reload();};
         };
     }
 
