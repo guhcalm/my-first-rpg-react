@@ -1,0 +1,11 @@
+.Debugger {
+    position: absolute;
+    height: 960px;
+    width: 960px;
+    bottom: 0;
+    z-index: 1;
+    border: 1px solid yellow;
+    backdrop-filter: blur(8px);
+    opacity: 1;
+    border-radius: 24px;
+}

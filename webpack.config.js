@@ -1,17 +1,18 @@
-const path = require( "path" );
-const HTML = require( "html-webpack-plugin" );
+import path from 'path';
+import html from 'html-webpack-plugin';
 
-const Webpack = (env) => ({
-    entry: path.resolve( "src", "index.tsx" ),
-    output: { path: path.resolve( "dist" ), filename: "index.bundler.js" },
-    resolve: { extensions: [ ".js", ".jsx", ".ts", ".tsx", ".css", ".scss", ".json" ] },
+const config = (env) => ({
+    entry: path.resolve( 'src', 'index.tsx' ),
+    output: { path: path.resolve( 'dist' ), filename: 'index.bundle.js' },
+    mode: env.WEBPACK_BUILD ? 'production' : 'development',
+    resolve: { extensions: [ '.js', '.jsx', '.ts', '.tsx', '.css', '.scss', '.json' ] },
     devServer: { port: 8000 },
     module: { rules: [
-        { test: /\.(js|ts)x?$/, exclude: /node_modules/, use: "babel-loader" },
-        { test: /\.(css|scss)$/, use: [ "style-loader", "css-loader", "sass-loader" ] },
-        { test: /\.(html)$/, use: "html-loader" }
+        { test: /\.(js|ts)x?$/, exclude: /node_modules/, use: 'babel-loader' },
+        { test: /\.(css|scss)$/, use: [ 'style-loader', 'css-loader', 'sass-loader' ] },
+        { test: /\.(html)$/, use: 'html-loader' }
     ]},
-    plugins: [ new HTML({ template: path.resolve( "public", "index.html" ) }) ]
+    plugins: [new html({ template: path.resolve( 'public', 'index.html' ) })]
 });
 
-module.exports = Webpack;
+export default config;

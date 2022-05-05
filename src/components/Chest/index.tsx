@@ -2,15 +2,19 @@ import React from "react";
 import { TILE_SIZE } from "../../settings/constants";
 import "./style";
 
-const Chest = () => (
-    <div className="Chest" style={
-        {
-            backgroundImage: "url( './assets/CHEST.png' )",
-            width: TILE_SIZE,
-            bottom: TILE_SIZE * Math.floor( Math.random() * 17 + 1 ),
-            left: TILE_SIZE * Math.floor( Math.random() * 20 )
-        }
-    }/>
-)
+interface PropsInterface { position: { x: number, y: number } }
+
+const Chest = (props: PropsInterface) => {  
+    return (
+        <div className="Chest" style={
+            {
+                backgroundImage: "url( './assets/CHEST.png' )",
+                width: TILE_SIZE,
+                top: TILE_SIZE * props.position.y,
+                left: TILE_SIZE * props.position.x
+            }
+        }/>
+    )
+}
 
 export default Chest;

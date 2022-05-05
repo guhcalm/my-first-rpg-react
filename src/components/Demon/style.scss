@@ -4,6 +4,8 @@
     background-repeat: no-repeat;
     animation: demon-animation .8s steps(4) infinite;
     background-position-y: 0;
+    z-index: 3;
+    filter: drop-shadow(0px 0px 5px red);
 }
 @keyframes demon-animation {
     from {

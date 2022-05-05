@@ -1,16 +1,23 @@
 import React from "react";
-import { TILE_SIZE } from "../../settings/constants";
+import useEnemyMovement from "../../hooks/useEnemyMovement";
+import { DirectionEnum, TILE_SIZE } from "../../settings/constants";
 import "./style";
 
-const MiniDemon = () => (
-    <div className="Mini-demon" style={
-        {
-            backgroundImage: "url( './assets/MINI-DEMON.png' )",
-            width: TILE_SIZE,
-            bottom: TILE_SIZE * Math.floor( Math.random() * 17 + 1 ),
-            left: TILE_SIZE * Math.floor( Math.random() * 20 )
-        }
-    }/>
-)
+interface PropsInterface { position: { x: number, y: number } }
+
+const MiniDemon = (props: PropsInterface) => {
+    const { position, direction } = useEnemyMovement( props.position );
+    return (
+        <div className="Mini-demon" style={
+            {
+                backgroundImage: "url( './assets/MINI-DEMON.png' )",
+                width: TILE_SIZE,
+                top: TILE_SIZE * position.y,
+                left: TILE_SIZE * position.x,
+                transform: `scaleX(${ direction === DirectionEnum.RIGHT ? 1 : -1 }) translateY(-48px)`
+            }
+        }/>
+    )
+}
 
 export default MiniDemon;

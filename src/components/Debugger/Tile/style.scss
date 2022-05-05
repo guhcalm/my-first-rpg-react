@@ -1,0 +1,14 @@
+.Tile {
+    --color: black;
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    border: 5px solid var(--color);
+    position: absolute;
+    color: var(--color);
+    text-shadow: 0 0 10px black, 0 0 2px black;
+    border-radius: 50%;
+}

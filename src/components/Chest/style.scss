@@ -4,6 +4,8 @@
     background-repeat: no-repeat;
     animation: chest-animation 1.2s steps(3) infinite;
     background-position-y: 0;
+    z-index: 2;
+    filter: drop-shadow(0px 0px 30px magenta);
 }
 @keyframes chest-animation {
     from {

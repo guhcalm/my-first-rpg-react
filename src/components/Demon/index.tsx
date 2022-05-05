@@ -1,16 +1,23 @@
 import React from "react";
-import { DEMON_SIZE, TILE_SIZE } from "../../settings/constants";
+import useEnemyMovement from "../../hooks/useEnemyMovement";
+import { DEMON_SIZE, DirectionEnum, TILE_SIZE } from "../../settings/constants";
 import "./style";
 
-const Demon = () => (
-    <div className="Demon" style={
-        {
-            backgroundImage: "url( './assets/DEMON.png' )",
-            width: DEMON_SIZE,
-            bottom: TILE_SIZE * Math.floor( Math.random() * 17 + 1 ),
-            left: TILE_SIZE * Math.floor( Math.random() * 19 )
-        }
-    }/>
-)
+interface PropsInterface { position: { x: number, y: number } }
+
+const Demon = (props: PropsInterface) => {
+    const { position, direction } = useEnemyMovement( props.position );
+    return (
+        <div className="Demon" style={
+            {
+                backgroundImage: "url( './assets/DEMON.png' )",
+                width: DEMON_SIZE,
+                top: TILE_SIZE * position.y,
+                left: TILE_SIZE * position.x,
+                transform: `scaleX(${ direction === DirectionEnum.RIGHT ? 1 : -1 }) translateY(-48px)`
+            }
+        }/>
+    )
+}
 
 export default Demon;
